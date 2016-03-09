@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
     <head>
         <meta charset="utf-8">
@@ -23,6 +24,8 @@
         {!! HTML::style('css/main.css') !!}       
         {!! HTML::style('css/prettyPhoto.css') !!}
         {!! HTML::style('css/responsive.css') !!}
+        {!! HTML::style('css/demo.css') !!}
+        {!! HTML::style('css/footer-distributed-with-address-and-phones.css') !!}
         
         @yield('head')
 
@@ -50,7 +53,7 @@
                                     @else
                                     <li><a href="{{URL::to('auth/logout')}}"><i class="fa fa-sign-out"></i></a></li>
                                     @endif
-                                
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -85,43 +88,67 @@
                     </div>
                 </div><!--/.container-->    
             </nav><!--/nav-->
+            
             @if(session()->has('ok'))
-        @include('partials/error', ['type' => 'success', 'message' => session('ok')])
-        @endif	
-        @if(isset($info))
-        @include('partials/error', ['type' => 'info', 'message' => $info])
-        @endif            
-        @yield('header')
+                @include('partials/error', ['type' => 'success', 'message' => session('ok')])
+            @endif	
+            
+            @if(isset($info))
+                @include('partials/error', ['type' => 'info', 'message' => $info])
+            @endif            
+            
+            @yield('header')
         
         </header><!--/header-->
-        @yield('main')
         
-        <section id="conatcat-info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                            <div class="pull-left">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="media-body">
-                                <h2>¿Tienes preguntas o necesitas información?</h2>
-                                <p>Llámanos (55)36-89-41-70</p>
-                            </div>
-                        </div>
-                    </div>
+        @yield('main')        
+        
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <h3>{{ HTML::image('images/logocircle.png') }}</h3>
+                <p class="footer-links">
+                    {!! link_to('/','Inicio' ) !!}
+                    ·
+                    {!! link_to('acerca', 'Acerca de Nosotros') !!}
+                    ·
+                    {!! link_to('servicios', 'Servicios') !!}
+                    ·
+                    {!! link_to('galeria', 'Galería') !!}
+                    ·
+                    {!! link_to('contact/create', 'Contacto') !!}
+                </p>
+                <p class="footer-company-name">GC Ingeniería en Aire S.A de C.V.  &copy; <?php echo date('Y')?></p>
+            </div>
+            
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>Tonatico 287 Colonia Las Fuentes Nezahualcóyotl</span>Estado de México 57600</p>
                 </div>
-            </div><!--/.container-->    
-        </section><!--/#conatcat-info-->
-        
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <p class="text-center">&copy; 2016 <b>GC Ingeniería en Aire S.A. de C.V.</b> Todos los derechos reservados.</p>
-                    <p class="text-center">Calle Tonatico No. 287 Colonia Las Fuentes Municipio Nezahualcóyotl Estado de México C.P. 57600</p>
+                
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>(55)36-89-41-70</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:gc_ingenieria_aire@yahoo.com.mx">gc_ingenieria_aire@yahoo.com.mx</a></p>
+		</div>
+            </div>
+            
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>
+                        Acerca de Nosotros
+                    </span>
+                    Elaboración de Ingeniería, diseño y ejecución de sistemas de aire acondicionado, clasificado, filtrado y ventilación.
+                </p>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/GCIngenieriaAire" target="_blank"><i class="fa fa-facebook"></i></a>
                 </div>
             </div>
-        </footer><!--/#footer-->
+        </footer>
         
         {!! HTML::script('js/jquery.js') !!}
         {!! HTML::script('js/bootstrap.min.js') !!}
@@ -140,11 +167,11 @@
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
             ga('create', 'UA-74165520-1', 'auto');
             ga('send', 'pageview');
         </script>
         
 	@yield('scripts')
+    
     </body>
 </html>
