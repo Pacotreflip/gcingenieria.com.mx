@@ -81,7 +81,7 @@ class AuthController extends Controller
 				$request->session()->forget('user_id');
 			}
 
-			return redirect('/');
+			return redirect(route('admin'));
 		}
 		
 		$request->session()->put('user_id', $user->id);	
