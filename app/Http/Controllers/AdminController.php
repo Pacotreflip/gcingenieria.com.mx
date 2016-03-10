@@ -2,6 +2,8 @@
 
 use App\Repositories\ContactRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\BlogRepository;
+
 
 class AdminController extends Controller {
 
@@ -31,12 +33,13 @@ class AdminController extends Controller {
 	* @param  App\Repositories\CommentRepository $comment_gestion
 	* @return Response
 	*/
-	public function admin(ContactRepository $contact_gestion)
+	public function admin(ContactRepository $contact_gestion, BlogRepository $blog_gestion)
 	{	
 		$nbrMessages = $contact_gestion->getNumber();
-		$nbrUsers = $this->user_gestion->getNumber();
+                $nbrPosts = $blog_gestion->getNumberPosts();
+
                 
-		return view('back.index', compact('nbrMessages', 'nbrUsers'));
+		return view('back.index', compact('nbrMessages', 'nbrPosts'));
 	}
 
 	/**

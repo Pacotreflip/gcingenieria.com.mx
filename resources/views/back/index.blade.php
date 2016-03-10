@@ -6,8 +6,9 @@
 
 	<div class="row">
 
-		@include('back/partials/pannel', ['color' => 'primary', 'icone' => 'envelope', 'nbr' => $nbrMessages, 'name' => trans('back/admin.new-messages'), 'url' => 'contact', 'total' => trans('back/admin.messages')])
+		@include('back/partials/pannel', ['color' => 'primary', 'icone' => 'envelope', 'nbr' => $nbrMessages, 'name' => trans('back/admin.new-messages'), 'url' => 'contact', 'total' => 'Mensajes en total'])
 
+		@include('back/partials/pannel', ['color' => 'red', 'icone' => 'image', 'nbr' => $nbrPosts, 'name' => 'Imágenes en Galería', 'url' => 'posts', 'total' => 'Editar Galería'])
 	</div>
 
 @stop

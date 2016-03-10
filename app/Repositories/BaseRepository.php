@@ -17,12 +17,15 @@ abstract class BaseRepository {
 	public function getNumber()
 	{
 		$total = $this->model->count();
-
 		$new = $this->model->whereSeen(0)->count();
-
 		return compact('total', 'new');
 	}
 
+        public function getNumberPosts()
+	{
+		$total = $this->model->count();
+		return compact('total');
+	}
 	/**
 	 * Destroy a model.
 	 *

@@ -17,9 +17,9 @@
 	{!! Form::open(['route' => 'post.store', 'method' => 'POST', 'class' => 'form-horizontal panel', 'enctype' => 'multipart/form-data']) !!}	
 
 	<!-- Entête de page -->
-	@include('back.partials.entete', ['title' => 'Nuevo Elemento de Galería', 'icone' => 'picture-o', 'fil' => link_to('galeria', 'Ver Galería') . ' / ' . trans('back/blog.creation')])
+	@include('back.partials.entete', ['title' => 'Nuevo Elemento de Galería', 'icone' => 'picture-o', 'fil' => link_to('galeria', 'Ver Galería') . ' / ' . link_to('posts', 'Ver Elementos')])
 
-	<div class="col-sm-12">
+	<div class="col-sm-12">     
 		@yield('form')
 
                 

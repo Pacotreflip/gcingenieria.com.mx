@@ -6,7 +6,7 @@
                     <span class="fa fa-{{ $icone }} fa-5x"></span>
                 </div>
                 <div class="col-xs-9 text-right">
-                <div class="huge">{{ $nbr['new'] }}</div>
+                <div class="huge">{{ isset($nbr['new']) ? $nbr['new'] : $nbr['total']  }}</div>
                 <div>{{ $name }}</div>
                 </div>
             </div>
