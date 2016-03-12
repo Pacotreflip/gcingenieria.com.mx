@@ -12,7 +12,7 @@
             <ul class="portfolio-filter text-center">
                 <li><a class="btn btn-default active" href="#" data-filter="*">Todo</a></li>
                 @foreach($tt as $t)
-                <li><a class="btn btn-default" href="#" data-filter=".{{$t}}">{{strtoupper($t)}}</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".{{str_replace(' ', '', $t)}}">{{strtoupper($t)}}</a></li>
                 @endforeach
             </ul><!--/#portfolio-filter-->
 
@@ -25,7 +25,7 @@
                     
                     <div class="portfolio-item 
                          @foreach($post->tags as $tag) 
-                         {{$tag->clave}} 
+                         {{str_replace(' ', '', $tag->clave)}} 
                          @endforeach 
                          col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">

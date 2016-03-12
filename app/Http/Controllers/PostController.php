@@ -39,6 +39,10 @@ class PostController extends Controller
         return $post;
     }
     
+    public function edit(){
+        
+    }
+    
     public function store()
     {
         $rules = array(

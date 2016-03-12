@@ -45,6 +45,9 @@ Route::get('post/create', [
 	'uses' => 'PostController@create', 
 	'as' => 'post.create'
 ]);
+
+Route::get('post/edit/{id}', 'PostController@edit')->name('post.edit');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
